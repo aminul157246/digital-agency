@@ -1,0 +1,34 @@
+import Link from 'next/link';
+
+const Links = () => {
+
+    const links = [
+        {
+            title : "Home",
+            path : "/"
+        },
+        {
+            title : "About",
+            path : "/about"
+        },
+        {
+            title : "Contact",
+            path : "/contact"
+        },
+        {
+            title : "Login",
+            path : "/login"
+        },
+    ]
+    return (
+        <div>
+            {
+                links.map(link => {
+                    <Link href={link.path}>{link.title}</Link>               
+                 })
+            }
+        </div>
+    );
+};
+
+export default Links;
