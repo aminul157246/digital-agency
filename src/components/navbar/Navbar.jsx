@@ -15,6 +15,8 @@ const Navbar = () => {
         <Link className='ml-4' href='/'>Home</Link>
         <Link className='ml-4' href='/about'>About</Link>
         <Link className='ml-4' href='/contact'>Contact</Link>
+        <Link className='ml-4' href='/portfolio'>Portfolio</Link>
+        <Link className='ml-4' href='/blog'>Blog</Link>
         {
             session ? 
             <>
