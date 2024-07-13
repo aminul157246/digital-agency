@@ -3,7 +3,9 @@ import Link from "next/link";
 
 
 async function getData() {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts`)
+    const res = await fetch(`http://localhost:3000/api/posts`,
+        {caches : "no-store"}
+    )
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -13,19 +15,19 @@ async function getData() {
 const BlogPage = async () => {
 
     const data = await getData()
-    // console.log(data);
+    console.log(data);
 
     return (
         <div>
             {
-                data.map(item => <Link href='/blog/testID' key={item.id}>
+                data.map(item => <Link href='/blog/testID' key={item._id}>
                     <div className="flex justify-center items-center mt-4" >
                     <div>
-                        <Image src="https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg" width={300} height={300} alt="blog_img" />
+                        <Image src={item.img} width={300} height={300} alt="blog_img" />
                     </div>
                     <div>
-                        <h2>Title :{item.title} </h2>
-                        <p>Description : {item.body} </p>
+                        <h2>{item.title} </h2>
+                        <p>{item.desc} </p>
                     </div>
                     </div>
                 </Link>)
